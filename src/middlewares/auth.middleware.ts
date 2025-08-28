@@ -58,7 +58,7 @@ export async function authMiddleware(
       );
 
       // Set new access token cookie
-      res.cookie("accessToken", newAccessToken, {
+      res.cookie("access_token", newAccessToken, {
         httpOnly: true,
         maxAge: 60 * 1000, // 1 minute
         secure: process.env.NODE_ENV === "production",
