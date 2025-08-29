@@ -132,12 +132,16 @@ export async function getUserData(req: Request, res: Response) {
       where: {
         id: userId,
       },
+      omit: {
+        password: true,
+        refreshToken: true,
+      },
     });
 
     return res.status(200).json({ message: "User Data", user });
   } catch (error) {
     return res
       .status(400)
-      .json({ message: "Error while login account", error });
+      .json({ message: "Error while getting account info", error });
   }
 }
